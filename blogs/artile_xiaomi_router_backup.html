@@ -63,14 +63,14 @@
 										<li>不知道是不是人品问题，路由器自带的设置备份在我这里不能正常工作</li>
 									</ul>
 
-									<h4>目标</h3>
+									<h4>目标</h4>
 									正好家里有好几块废旧硬盘，如果可以废物利用，就解决以上的问题了。希望把一两块旧硬盘预先刷成小米的路由器硬盘。这样出问题了就可以直接替换。而且设置跟刷硬盘时候的设置完全一样。虽然原装的硬盘是1T的，但因为废旧硬盘都比较小，所以希望几十G、一百来G的旧硬盘也可以工作。<br />
                   这样还有一个好处：1T的新硬盘可以当优盘在需要时连接到路由器上。不需要一直在线。兼顾存储空间和硬盘寿命。</p>
 									<hr />
 								</section>
 
 								<section>
-									<h3>前提条件</h3>
+									<h3 class="major">前提条件</h3>
 									<p>
 									  <ul>
 									  	<li>2.5寸的移动硬盘盒</li>
@@ -88,7 +88,7 @@
 								</section>
 
 								<section>
-									<h3>小米路由器硬盘的分区结构</h3>
+									<h3 class="major">小米路由器硬盘的分区结构</h3>
 									<p>把旧硬盘装进移动硬盘盒后，连接到电脑上。连接完成后，查看/dev/下该硬盘对应的文件名。比如，在我的系统上，加载后，旧硬盘的文件名是/dev/sdd。以后都假设硬盘文件名是sdd。<br />
                   在gparted中，将sdd按照以下方式分区。分区前最好检查一下现有路由器硬盘的分区结构是否和下表一致。<br />
 									  <div class="table-wrapper">
@@ -128,7 +128,7 @@
 								</section>
 
 								<section>
-									<h3>备份</h3>
+									<h3 class="major">备份</h3>
 									<p>卸载旧硬盘，将路由器硬盘装进硬盘盒，并加载到计算机上。假设对应文件名还是sdd。这时可以用如下几条命令备份前三个分区。第四个分区的大小不固定，而且不是系统盘，所以可以直接cp来备份到一个目录。
 									<pre><code>sudo dd if=/dev/sdd1 of=~/xiaomi_disk_part1.bak
 sudo dd if=/dev/sdd2 of=~/xiaomi_disk_part2.bak
@@ -137,7 +137,7 @@ sudo dd if=/dev/sdd3 of=~/xiaomi_disk_part3.bak</code></pre>
 								</section>
 
 								<section>
-									<h3>刷硬盘</h3>
+									<h3 class="major">刷硬盘</h3>
 									<p>卸载路由器硬盘，将之前分好区的旧硬盘装进硬盘盒，并加载到计算机上。假设对应文件名还是sdd。这时可以用如下几条命令刷前三个分区。第四个分区可以直接cp拷贝之前备份的内容即可。
 									<pre><code>sudo dd if=~/xiaomi_disk_part1.bak of=/dev/sdd1
 sudo dd if=~/xiaomi_disk_part2.bak of=/dev/sdd2
@@ -146,7 +146,7 @@ sudo dd if=~/xiaomi_disk_part3.bak of=/dev/sdd3</code></pre>
 								</section>
 
 								<section>
-									<h3>测试</h3>
+									<h3 class="major">测试</h3>
 									<p>断电状态下，用刷好的旧硬盘代替原先的路由器硬盘，插入路由器。通电后，路由器初始化完成，亮蓝灯。网络共享的硬盘第四分区一切正常，只是显示的空余空间比之前要小很多。因为替换的硬盘只有几十G。一切正常。</p>
 									<hr />
 								</section>
